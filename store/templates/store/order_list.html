@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Order List{% endblock %}
+
+{% block content %}
+  <h2>Orders</h2>
+  <ul class="list-group">
+    {% for order in object_list %}
+      <li class="list-group-item">
+        <a href="{% url 'order_detail' order.pk %}">Order #{{ order.pk }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

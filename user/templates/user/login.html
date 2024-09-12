@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 login-row">
+            <div class="col-12">
+                <form name="login" method="POST" novalidate>
+                    <h2>Вход</h2>
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="field-wrapper mt-4">
+                        {{ field.label_tag }} {{ field }}
+                        <div class="text-danger">
+                            {{ field.errors }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <button class="btn btn-primary d-block col-12 mt-4" type="submit">Войти</button>
+                    <a href="/auth/register/" class="d-block text-center mt-4">Нет аккаунта? Зарегистрироваться</a>
+                    <a href="/auth/forgot-password/" class="d-block text-center mt-4">Забыли пароль?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

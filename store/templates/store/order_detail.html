@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Order #{{ object.pk }}{% endblock %}
+
+{% block content %}
+  <h2>Order #{{ object.pk }}</h2>
+  <p>Restaurant: {{ object.restaurant.name }}</p>
+  <p>Status: {{ object.get_status_display }}</p>
+  <h3>Items</h3>
+  <ul class="list-group">
+    {% for item in object.orderitem_set.all %}
+      <li class="list-group-item">
+        {{ item.product.name }} - Quantity: {{ item.quantity }} - Price: {{ item.price }}
+      </li>
+    {% endfor %}
+  </ul>
+  <a class="btn btn-secondary" href="{% url 'order_list' %}">Back to List</a>
+{% endblock %}

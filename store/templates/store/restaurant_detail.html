@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+  <h2>{{ object.name }}</h2>
+  <p>Address: {{ object.address }}</p>
+  <p>Phone: {{ object.phone }}</p>
+  <p>Email: {{ object.email }}</p>
+  <a class="btn btn-primary" href="{% url 'restaurant_list' %}">Back to List</a>
+{% endblock %}

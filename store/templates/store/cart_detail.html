@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Cart #{{ object.pk }}{% endblock %}
+
+{% block content %}
+  <h2>Cart #{{ object.pk }}</h2>
+  <p>Restaurant: {{ object.restaurant.name }}</p>
+  <h3>Items</h3>
+  <ul class="list-group">
+    {% for item in object.cartitem_set.all %}
+      <li class="list-group-item">
+        {{ item.product.name }} - Quantity: {{ item.quantity }}
+      </li>
+    {% endfor %}
+  </ul>
+  <a class="btn btn-secondary" href="{% url 'cart_list' %}">Back to List</a>
+{% endblock %}

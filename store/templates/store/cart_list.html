@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Cart List{% endblock %}
+
+{% block content %}
+  <h2>Carts</h2>
+  <ul class="list-group">
+    {% for cart in object_list %}
+      <li class="list-group-item">
+        <a href="{% url 'cart_detail' cart.pk %}">Cart #{{ cart.pk }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a class="btn btn-primary mt-3" href="{% url 'cart_create' %}">Create New Cart</a>
+{% endblock %}

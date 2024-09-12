@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+  <title>Registration</title>
+  <style>
+      .field-wrapper {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .login-row {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  </style>
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 login-row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <form name="registration" method="POST">
+                    <h2>Регистрация</h2>
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="field-wrapper">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            <div class="text-danger">
+                                {{ field.errors }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <button class="btn btn-lg btn-primary btn-block col-12" type="submit">Зарегистрироваться</button>
+                </form>
+            <a href="/auth/login/" class="block">У вас уже есть аккаунт? Войти</a>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}
+
