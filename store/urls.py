@@ -3,7 +3,8 @@ from .views import (
     ProductListView, ProductDetailView, ProductCreateView,
     ProductUpdateView, ProductDeleteView,
     RestaurantListView, RestaurantDetailView,
-    CartListView, CartDetailView, CartCreateView,
+    RestaurantCreateView, RestaurantDeleteView, RestaurantUpdateView,
+    CartListView, CartDetailView,
     OrderListView, OrderDetailView,
     PaymentListView, PaymentDetailView
 )
@@ -19,11 +20,13 @@ urlpatterns = [
     # Restaurants
     path('restaurants/', RestaurantListView.as_view(), name='restaurant_list'),
     path('restaurants/<int:pk>/', RestaurantDetailView.as_view(), name='restaurant_detail'),
+    path('restaurants/new/', RestaurantCreateView.as_view(), name='restaurant_create'),
+    path('restaurants/<int:pk>/edit/', RestaurantUpdateView.as_view(), name='restaurant_update'),
+    path('restaurants/<int:pk>/delete/', RestaurantDeleteView.as_view(), name='restaurant_delete'),
 
     # Carts
     path('carts/', CartListView.as_view(), name='cart_list'),
     path('carts/<int:pk>/', CartDetailView.as_view(), name='cart_detail'),
-    path('carts/new/', CartCreateView.as_view(), name='cart_create'),
 
     # Orders
     path('orders/', OrderListView.as_view(), name='order_list'),

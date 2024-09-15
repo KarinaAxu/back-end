@@ -7,7 +7,15 @@
   <p>{{ object.description }}</p>
   <p>Price: {{ object.price }}</p>
   <p>Available: {{ object.is_available }}</p>
-  <a class="btn btn-secondary" href="{% url 'product_update' object.pk %}">Edit</a>
+  <p>Restaurants:</p>
+  <ul>
+    {% for restaurant in object.restaurants.all %}
+      <li>{{ restaurant.name }}</li>
+    {% empty %}
+      <li>No restaurants available</li>
+    {% endfor %}
+  </ul>
+  <a class="btn btn-primary" href="{% url 'product_update' object.pk %}">Edit</a>
   <a class="btn btn-danger" href="{% url 'product_delete' object.pk %}">Delete</a>
-  <a class="btn btn-primary" href="{% url 'product_list' %}">Back to List</a>
+  <a class="btn btn-secondary" href="{% url 'product_list' %}">Back to List</a>
 {% endblock %}

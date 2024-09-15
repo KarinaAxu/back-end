@@ -25,7 +25,7 @@ def login_page(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 auth_login(request, user)
-                return redirect('/')
+                return redirect('products/')
             else:
                 form.add_error(None, 'Invalid username or password')
         return render(request, 'user/login.html', {'form': form})
@@ -42,14 +42,14 @@ def register_page(request):
             auth_data = authenticate(request, username=user.username, password=form.cleaned_data.get('password'))
             if auth_data is not None:
                 auth_login(request, auth_data)
-                return redirect('/')
+                return redirect('products/')
             return redirect('/auth/login/')
         return render(request, 'user/register.html', {'form': form})
 
 
 def logout(request):
     auth.logout(request)
-    return redirect('/auth/login')
+    return redirect('/auth/login/')
 
 
 def profile_page(request):
@@ -62,7 +62,7 @@ def profile_page(request):
             form = ProfileForm(request.POST, request.FILES, instance=profile)
             if form.is_valid():
                 form.save()
-                return redirect('/profile/')  # Redirect to profile page or any other page
+                return redirect('settings_page')
             return render(request, 'user/settings.html', {'form': form, 'profile': profile})
     else:
         return redirect('/auth/login/')

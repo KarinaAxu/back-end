@@ -7,5 +7,7 @@
   <p>Address: {{ object.address }}</p>
   <p>Phone: {{ object.phone }}</p>
   <p>Email: {{ object.email }}</p>
-  <a class="btn btn-primary" href="{% url 'restaurant_list' %}">Back to List</a>
+  <a class="btn btn-primary" href="{% url 'restaurant_update' object.pk %}">Edit</a>
+  <a class="btn btn-danger" href="{% url 'restaurant_delete' object.pk %}">Delete</a>
+  <a class="btn btn-secondary" href="{% url 'restaurant_list' %}">Back to List</a>
 {% endblock %}

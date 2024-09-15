@@ -3,7 +3,7 @@
 {% block title %}Payment #{{ object.pk }}{% endblock %}
 
 {% block content %}
-  <h2>Payment #{{ object.pk }}</h2>
+  <h2>Payment {{ object.pk }}</h2>
   <p>Order: {{ object.order.id }}</p>
   <p>Amount: {{ object.amount }}</p>
   <p>Status: {{ object.get_status_display }}</p>

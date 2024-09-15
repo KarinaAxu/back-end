@@ -3,7 +3,7 @@
 {% block title %}Cart #{{ object.pk }}{% endblock %}
 
 {% block content %}
-  <h2>Cart #{{ object.pk }}</h2>
+  <h2>Cart {{ object.pk }}</h2>
   <p>Restaurant: {{ object.restaurant.name }}</p>
   <h3>Items</h3>
   <ul class="list-group">
@@ -13,5 +13,6 @@
       </li>
     {% endfor %}
   </ul>
+  </br>
   <a class="btn btn-secondary" href="{% url 'cart_list' %}">Back to List</a>
 {% endblock %}

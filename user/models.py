@@ -6,6 +6,8 @@ class Profile(models.Model):
     avatar = models.ImageField(upload_to='user/', null=True, max_length=2000)
     bio = models.TextField(max_length=2000, null=False, blank=True)
     owner = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders', default=1)
+    restaurant = models.ForeignKey('store.Restaurant', on_delete=models.CASCADE, default=1)
 
     class Meta:
         verbose_name = 'Profile'

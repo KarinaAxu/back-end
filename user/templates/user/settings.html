@@ -25,12 +25,10 @@
 {% block head %}
 {% endblock %}
 
-
 {% block content %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            {% include 'header.html' %}
         </div>
     </div>
 </div>
@@ -44,7 +42,9 @@
                         <label for="id_avatar">
                             <div class="image-wrapper" id="image-wrapper">
                                 {% if profile.avatar %}
-                                <img src="{{ profile.avatar.url }}" id="image-content"/>
+                                    <img src="{{ profile.avatar.url }}" alt="Avatar">
+                                {% else %}
+                                    <p>No avatar uploaded.</p>
                                 {% endif %}
                             </div>
                             <input id="id_avatar" type="file" name="avatar" accept="image/*" class="image_input"/>
