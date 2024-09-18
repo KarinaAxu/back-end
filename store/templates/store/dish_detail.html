@@ -15,7 +15,7 @@
       <li>No restaurants available</li>
     {% endfor %}
   </ul>
-  <a class="btn btn-primary" href="{% url 'product_update' object.pk %}">Edit</a>
-  <a class="btn btn-danger" href="{% url 'product_delete' object.pk %}">Delete</a>
-  <a class="btn btn-secondary" href="{% url 'product_list' %}">Back to List</a>
+  <a class="btn btn-primary" href="{% url 'dish_update' object.pk %}">Edit</a>
+  <a class="btn btn-danger" href="{% url 'dish_delete' object.pk %}">Delete</a>
+  <a class="btn btn-secondary" href="{% url 'dish_list' %}">Back to List</a>
 {% endblock %}

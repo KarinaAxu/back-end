@@ -7,7 +7,7 @@
   <ul class="list-group">
     {% for payment in object_list %}
       <li class="list-group-item">
-        <a href="{% url 'payment_detail' payment.pk %}">Payment #{{ payment.pk }}</a>
+        <a style="text-decoration: none", href="{% url 'payment_detail' payment.pk %}">Payment #{{ payment.pk }}</a>
       </li>
     {% endfor %}
   </ul>

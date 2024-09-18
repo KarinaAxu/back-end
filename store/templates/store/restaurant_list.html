@@ -7,7 +7,7 @@
   <ul class="list-group">
     {% for restaurant in object_list %}
       <li class="list-group-item">
-        <a href="{% url 'restaurant_detail' restaurant.pk %}">{{ restaurant.name }}</a>
+        <a style="text-decoration: none", href="{% url 'restaurant_detail' restaurant.pk %}">{{ restaurant.name }}</a>
       </li>
     {% endfor %}
   </ul>

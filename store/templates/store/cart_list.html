@@ -7,7 +7,7 @@
   <ul class="list-group">
     {% for cart in object_list %}
       <li class="list-group-item">
-        <a href="{% url 'cart_detail' cart.pk %}">Cart #{{ cart.pk }}</a>
+        <a style="text-decoration: none",  href="{% url 'cart_detail' cart.pk %}">Cart #{{ cart.pk }}</a>
       </li>
     {% endfor %}
   </ul>

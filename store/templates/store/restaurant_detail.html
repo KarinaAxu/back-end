@@ -4,7 +4,15 @@
 
 {% block content %}
   <h2>{{ object.name }}</h2>
-  <p>Address: {{ object.address }}</p>
+  <p>Address:
+    {% if object.address.all %}
+      {% for address in object.address.all %}
+        {{ address }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+    {% else %}
+      No address provided
+    {% endif %}
+  </p>
   <p>Phone: {{ object.phone }}</p>
   <p>Email: {{ object.email }}</p>
   <a class="btn btn-primary" href="{% url 'restaurant_update' object.pk %}">Edit</a>

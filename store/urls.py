@@ -1,21 +1,21 @@
 from django.urls import path
 from .views import (
-    ProductListView, ProductDetailView, ProductCreateView,
-    ProductUpdateView, ProductDeleteView,
+    DishListView, DishDetailView, DishCreateView,
+    DishUpdateView, DishDeleteView,
     RestaurantListView, RestaurantDetailView,
     RestaurantCreateView, RestaurantDeleteView, RestaurantUpdateView,
     CartListView, CartDetailView,
     OrderListView, OrderDetailView,
-    PaymentListView, PaymentDetailView
+    PaymentListView, PaymentDetailView, OrderCreate
 )
 
 urlpatterns = [
-    # Products
-    path('products/', ProductListView.as_view(), name='product_list'),
-    path('products/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
-    path('products/new/', ProductCreateView.as_view(), name='product_create'),
-    path('products/<int:pk>/edit/', ProductUpdateView.as_view(), name='product_update'),
-    path('products/<int:pk>/delete/', ProductDeleteView.as_view(), name='product_delete'),
+    # Dishs
+    path('dish/', DishListView.as_view(), name='dish_list'),
+    path('dish/<int:pk>/', DishDetailView.as_view(), name='dish_detail'),
+    path('dish/new/', DishCreateView.as_view(), name='dish_create'),
+    path('dish/<int:pk>/edit/', DishUpdateView.as_view(), name='dish_update'),
+    path('dish/<int:pk>/delete/', DishDeleteView.as_view(), name='dish_delete'),
 
     # Restaurants
     path('restaurants/', RestaurantListView.as_view(), name='restaurant_list'),
@@ -31,6 +31,7 @@ urlpatterns = [
     # Orders
     path('orders/', OrderListView.as_view(), name='order_list'),
     path('orders/<int:pk>/', OrderDetailView.as_view(), name='order_detail'),
+    path('order/create/', OrderCreate, name='order_create'),
 
     # Payments
     path('payments/', PaymentListView.as_view(), name='payment_list'),
